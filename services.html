@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – CFI Global</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --blue-600: #0a66c2;
+      --blue-900: #062d5f;
+      --gray-500: #6b7fa0;
+      --white: #ffffff;
+      --light-bg: #f4f7fb;
+      --card-shadow: 0 2px 18px rgba(6,45,95,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--blue-900);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section { padding: 96px 0; }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(10,102,194,0.10);
+      box-shadow: 0 2px 12px rgba(6,45,95,0.06);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .navbar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--blue-900);
+      letter-spacing: -0.3px;
+    }
+
+    .navbar-logo span { color: var(--blue-600); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--blue-900);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--blue-600); }
+
+    .nav-login {
+      position: relative;
+    }
+
+    .nav-login-btn {
+      background: var(--blue-600);
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .nav-login-btn:hover { background: var(--blue-900); }
+
+    .login-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      background: var(--white);
+      border: 1px solid rgba(10,102,194,0.15);
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      min-width: 160px;
+      overflow: hidden;
+    }
+
+    .nav-login:hover .login-dropdown { display: block; }
+
+    .login-dropdown a {
+      display: block;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blue-900);
+      transition: background 0.15s;
+    }
+
+    .login-dropdown a:hover { background: var(--light-bg); color: var(--blue-600); }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-900) 0%, #0e4a91 60%, #1565c0 100%);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(10,102,194,0.18);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: #90caf9;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em { color: #90caf9; font-style: normal; }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.78);
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue-600);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #0858aa; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 7px;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-tag {
+      display: inline-block;
+      background: #e8f0fe;
+      color: var(--blue-600);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--blue-900);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray-500);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header-center .section-sub { margin: 0 auto; }
+
+    /* ─── SERVICES GRID ─── */
+    .services-section { background: var(--light-bg); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 28px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(10,102,194,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(6,45,95,0.13);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: #e8f0fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon svg { width: 26px; height: 26px; }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--blue-900);
+    }
+
+    .service-description {
+      font-size: 14.5px;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 4px;
+    }
+
+    .service-tag {
+      background: #f0f4fb;
+      color: var(--blue-600);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 20px;
+    }
+
+    /* ─── NRI SECTION ─── */
+    .nri-section { background: var(--white); }
+
+    .nri-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .nri-content .section-sub { max-width: 100%; }
+
+    .nri-accounts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .nri-account-card {
+      background: var(--white);
+      border: 1.5px solid rgba(10,102,194,0.12);
+      border-left: 4px solid var(--blue-600);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 22px;
+    }
+
+    .nri-account-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue-900);
+      margin-bottom: 6px;
+    }
+
+    .nri-account-card p {
+      font-size: 13.5px;
+      color: var(--gray-500);
+      line-height: 1.55;
+    }
+
+    /* ─── BPO PROCESS ─── */
+    .bpo-section { background: var(--light-bg); }
+
+    .bpo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .bpo-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(10,102,194,0.07);
+    }
+
+    .bpo-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue-900);
+      margin-bottom: 10px;
+    }
+
+    .bpo-card p {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .bpo-channels {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .channel-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .channel-in { background: #e3f2fd; color: #0a66c2; }
+    .channel-out { background: #e8f5e9; color: #2e7d32; }
+
+    /* ─── IT SOLUTIONS ─── */
+    .it-section { background: var(--white); }
+
+    .it-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .it-card {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 26px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      border: 1px solid rgba(10,102,194,0.06);
+      transition: box-shadow 0.2s;
+    }
+
+    .it-card:hover { box-shadow: var(--card-shadow); }
+
+    .it-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #dce8f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .it-icon svg { width: 22px; height: 22px; }
+
+    .it-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue-900);
+      margin-bottom: 6px;
+    }
+
+    .it-card p {
+      font-size: 13.5px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ─── FINANCIAL CONSULTANT ─── */
+    .fin-section { background: var(--light-bg); }
+
+    .fin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .fin-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(6,45,95,0.06);
+      border: 1px solid rgba(10,102,194,0.07);
+      text-align: center;
+    }
+
+    .fin-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--blue-600);
+      margin-bottom: 6px;
+    }
+
+    .fin-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-900);
+      margin-bottom: 8px;
+    }
+
+    .fin-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.55;
+    }
+
+    /* ─── PROCESS STEPS ─── */
+    .process-section { background: var(--white); }
+
+    .process-steps {
+      display: flex;
+      gap: 0;
+      position: relative;
+      margin-top: 16px;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue-600), #90caf9);
+      z-index: 0;
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      color: var(--white);
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 16px rgba(10,102,194,0.3);
+    }
+
+    .process-step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue-900);
+      margin-bottom: 8px;
+    }
+
+    .process-step p {
+      font-size: 13.5px;
+      color: var(--gray-500);
+      line-height: 1.55;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testi-section { background: var(--blue-900); }
+
+    .testi-section .section-title { color: var(--white); }
+    .testi-section .section-tag { background: rgba(255,255,255,0.12); color: #90caf9; }
+    .testi-section .section-sub { color: rgba(255,255,255,0.65); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+
+    .testi-stars {
+      color: #ffd600;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .testi-text {
+      font-size: 14.5px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testi-author {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .testi-role {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-900) 100%);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cta-actions .btn-primary { background: var(--white); color: var(--blue-900); }
+    .cta-actions .btn-primary:hover { background: #e8f0fe; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--blue-900);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 28px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-top: 12px;
+      max-width: 280px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: #90caf9; }
+
+    .footer h5 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .footer ul { list-style: none; }
+
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer ul li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    .footer ul li a:hover { color: #90caf9; }
+
+    .footer-contact p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 10px;
+    }
+
+    .footer-contact strong { color: rgba(255,255,255,0.9); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-offices {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .nri-grid { gap: 40px; }
+      .fin-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .nri-grid { grid-template-columns: 1fr; }
+      .bpo-grid { grid-template-columns: 1fr; }
+      .it-grid { grid-template-columns: 1fr; }
+      .fin-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .process-steps { flex-direction: column; gap: 24px; }
+      .process-steps::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">CFI <span>Global</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="insurance.html">Insurance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-login">
+      <button class="nav-login-btn">
+        Login
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="login-dropdown">
+        <a href="#">Admin Login</a>
+        <a href="#">Employee Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Our Services</span>
+      <h1>Tailored Solutions for <em>Every Business Need</em></h1>
+      <p class="hero-sub">
+        From IT infrastructure and NRI banking to BPO excellence and financial consulting — CFI Global delivers end-to-end services built for modern enterprises.
+      </p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">
+          Get Started
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="contact.html" class="btn-outline">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CORE SERVICES ═══ -->
+<section class="section services-section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Complete Service Portfolio</h2>
+      <p class="section-sub">Integrated solutions spanning technology, banking, outsourcing, and consulting — all under one roof.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- IT Solutions -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="service-title">IT Solutions</div>
+        <p class="service-description">End-to-end technology services empowering businesses with cutting-edge digital infrastructure and intelligent automation.</p>
+        <div class="service-tags">
+          <span class="service-tag">Web Development</span>
+          <span class="service-tag">Cloud & IT Infrastructure</span>
+          <span class="service-tag">AI & Automation</span>
+          <span class="service-tag">Digital Marketing</span>
+        </div>
+      </div>
+
+      <!-- NRI Banking -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>
+          </svg>
+        </div>
+        <div class="service-title">NRI Banking Solutions</div>
+        <p class="service-description">Specialized banking services for Non-Resident Indians with account management, portfolio schemes, and compliance support.</p>
+        <div class="service-tags">
+          <span class="service-tag">NRE Account</span>
+          <span class="service-tag">NRO Account</span>
+          <span class="service-tag">PIS Portfolio</span>
+        </div>
+      </div>
+
+      <!-- BPO Services -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <path d="M22 16.92V19a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h2.09a2 2 0 012 1.72c.13.96.36 1.9.69 2.81a2 2 0 01-.45 2.11L8.09 10.9A16 16 0 0013.1 15.9l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0121.28 17z"/>
+          </svg>
+        </div>
+        <div class="service-title">BPO Services</div>
+        <p class="service-description">Streamlining operations with efficient, client-focused outsourcing — chat, email, and voice support across all channels.</p>
+        <div class="service-tags">
+          <span class="service-tag">Chat Support</span>
+          <span class="service-tag">Email Support</span>
+          <span class="service-tag">Voice Process</span>
+        </div>
+      </div>
+
+      <!-- CRM Services -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="service-title">CRM Services</div>
+        <p class="service-description">Unified CRM and ERP solutions that transform how businesses manage customer relationships and enterprise resources.</p>
+        <div class="service-tags">
+          <span class="service-tag">CRM Solutions</span>
+          <span class="service-tag">ERP Integration</span>
+        </div>
+      </div>
+
+      <!-- Back Office Support -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+          </svg>
+        </div>
+        <div class="service-title">Back Office Support</div>
+        <p class="service-description">Comprehensive back-office operations including financial support, Video KYC, and GST compliance management.</p>
+        <div class="service-tags">
+          <span class="service-tag">Financial & NBFC</span>
+          <span class="service-tag">KYC</span>
+          <span class="service-tag">Video KYC</span>
+          <span class="service-tag">GST Support</span>
+        </div>
+      </div>
+
+      <!-- Financial Consultant -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="service-title">Financial Consultant</div>
+        <p class="service-description">Expert financial consulting covering collection support, income tax returns, and E-way bill compliance for businesses.</p>
+        <div class="service-tags">
+          <span class="service-tag">Collection Support</span>
+          <span class="service-tag">ITR Filing</span>
+          <span class="service-tag">E-way Bill</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NRI BANKING ═══ -->
+<section class="section nri-section">
+  <div class="container">
+    <div class="nri-grid">
+      <div class="nri-content">
+        <div class="section-tag">NRI Banking</div>
+        <h2 class="section-title">Banking Solutions for Non-Resident Indians</h2>
+        <p class="section-sub">We offer a complete suite of NRI banking services — helping you manage your finances in India from anywhere in the world, with full regulatory compliance.</p>
+
+        <div class="nri-accounts">
+          <div class="nri-account-card">
+            <h4>NRE — Non-Resident External</h4>
+            <p>A rupee account for parking foreign earnings in India. Interest is fully repatriable and tax-exempt. Ideal for transferring overseas income.</p>
+          </div>
+          <div class="nri-account-card">
+            <h4>NRO — Non-Resident Ordinary</h4>
+            <p>For managing income earned in India — rent, dividends, pensions. Repatriation allowed up to USD 1 million per year with proper documentation.</p>
+          </div>
+          <div class="nri-account-card">
+            <h4>PIS — Portfolio Investment Scheme</h4>
+            <p>Facilitates purchase and sale of shares and debentures of Indian companies on a stock exchange under the RBI's PIS framework.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="background: linear-gradient(135deg, #e8f0fe 0%, #dce8f7 100%); border-radius: 20px; padding: 48px 36px; text-align: center;">
+          <div style="font-family:'Playfair Display',serif; font-size: 52px; font-weight:700; color: var(--blue-600); margin-bottom: 6px;">3</div>
+          <div style="font-size:15px; font-weight:600; color:var(--blue-900); margin-bottom:28px;">Account Types Supported</div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="background:var(--white); border-radius:10px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:14px; font-weight:600; color:var(--blue-900);">NRE Account</span>
+              <span style="font-size:12px; color:var(--blue-600); background:#e8f0fe; padding:4px 10px; border-radius:20px; font-weight:600;">Tax Exempt</span>
+            </div>
+            <div style="background:var(--white); border-radius:10px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:14px; font-weight:600; color:var(--blue-900);">NRO Account</span>
+              <span style="font-size:12px; color:#2e7d32; background:#e8f5e9; padding:4px 10px; border-radius:20px; font-weight:600;">India Income</span>
+            </div>
+            <div style="background:var(--white); border-radius:10px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:14px; font-weight:600; color:var(--blue-900);">PIS Scheme</span>
+              <span style="font-size:12px; color:#b45309; background:#fef3c7; padding:4px 10px; border-radius:20px; font-weight:600;">Equity Trading</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="margin-top:28px; justify-content:center; width:100%;">Open NRI Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BPO SERVICES ═══ -->
+<section class="section bpo-section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-tag">BPO Excellence</div>
+      <h2 class="section-title">Customer Support & Operations</h2>
+      <p class="section-sub">Multi-channel support services with trained agents, structured SOPs, and quality assurance at every touchpoint.</p>
+    </div>
+    <div class="bpo-grid">
+      <div class="bpo-card">
+        <h4>💬 Chat Support</h4>
+        <p>Real-time customer support through live chat platforms. Trained agents resolving queries quickly with quality scripts and escalation workflows.</p>
+      </div>
+      <div class="bpo-card">
+        <h4>✉️ Email Support</h4>
+        <p>Structured email handling with defined SLAs. We manage high-volume queries, complaint resolution, and customer communications professionally.</p>
+      </div>
+      <div class="bpo-card">
+        <h4>📞 Voice Process</h4>
+        <p>Inbound and outbound calling operations for sales, service, lead nurturing, and customer retention programs.</p>
+        <div class="bpo-channels">
+          <span class="channel-badge channel-in">Inbound</span>
+          <span class="channel-badge channel-out">Outbound</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IT SOLUTIONS ═══ -->
+<section class="section it-section">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+      <div>
+        <div class="section-tag">IT Solutions</div>
+        <h2 class="section-title">Technology That Powers Growth</h2>
+        <p class="section-sub" style="margin-bottom:32px;">Harnessing smart technology to boost business intelligence and enable digital transformation across industries.</p>
+        <a href="contact.html" class="btn-primary">Explore IT Services</a>
+      </div>
+      <div class="it-grid">
+        <div class="it-card">
+          <div class="it-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h4>Web Development</h4>
+            <p>Custom websites and web applications built for performance, security, and scale.</p>
+          </div>
+        </div>
+        <div class="it-card">
+          <div class="it-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+          </div>
+          <div>
+            <h4>Cloud & IT Infrastructure</h4>
+            <p>Cloud migration, server management, and scalable infrastructure solutions.</p>
+          </div>
+        </div>
+        <div class="it-card">
+          <div class="it-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div>
+            <h4>AI & Automation</h4>
+            <p>Intelligent automation and AI integration to eliminate manual processes.</p>
+          </div>
+        </div>
+        <div class="it-card">
+          <div class="it-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <h4>Digital Marketing</h4>
+            <p>SEO, paid ads, social media, and content strategies for measurable growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINANCIAL CONSULTANT ═══ -->
+<section class="section fin-section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-tag">Financial Consulting</div>
+      <h2 class="section-title">Expert Financial & Compliance Services</h2>
+      <p class="section-sub">From tax filing to E-way bills — our financial consultants handle the complexity so you can focus on growth.</p>
+    </div>
+    <div class="fin-grid">
+      <div class="fin-card">
+        <div class="fin-num">₹</div>
+        <div class="fin-label">Collection Support</div>
+        <p class="fin-desc">Structured receivables management and collections assistance to improve cash flow and reduce outstanding dues.</p>
+      </div>
+      <div class="fin-card">
+        <div class="fin-num">ITR</div>
+        <div class="fin-label">Income Tax Returns</div>
+        <p class="fin-desc">Accurate and timely ITR filing for individuals and businesses, ensuring compliance with all applicable tax regulations.</p>
+      </div>
+      <div class="fin-card">
+        <div class="fin-num">GST</div>
+        <div class="fin-label">GST & Financial Support</div>
+        <p class="fin-desc">End-to-end GST compliance, filings, reconciliation, and back-office financial processing support.</p>
+      </div>
+      <div class="fin-card">
+        <div class="fin-num" style="font-size:28px;">E-Way</div>
+        <div class="fin-label">E-Way Bill Management</div>
+        <p class="fin-desc">Generation, tracking, and management of E-way bills for goods transportation compliance under GST laws.</p>
+      </div>
+      <div class="fin-card">
+        <div class="fin-num" style="font-size:28px;">KYC</div>
+        <div class="fin-label">Video KYC</div>
+        <p class="fin-desc">Seamless digital KYC verification including video-based KYC for NBFC and banking clients with full compliance.</p>
+      </div>
+      <div class="fin-card">
+        <div class="fin-num" style="font-size:28px;">360°</div>
+        <div class="fin-label">Digital Marketing</div>
+        <p class="fin-desc">Growth-focused digital marketing services covering SEO, social media, and performance campaigns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="section process-section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-tag">How We Work</div>
+      <h2 class="section-title">Built for Speed, Accuracy & Accountability</h2>
+      <p class="section-sub">A proven delivery framework that keeps every engagement on track from day one.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Understand Requirements</h4>
+        <p>We begin by mapping your exact business needs and compliance requirements.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Define SOPs</h4>
+        <p>Clear workflows, reporting cadences, and quality benchmarks are established upfront.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Deploy Team</h4>
+        <p>Trained specialists are deployed with full onboarding aligned to your systems.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>QA & Reporting</h4>
+        <p>Structured quality checks, daily MIS reports, and KPI tracking keep delivery consistent.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <h4>Scale & Optimize</h4>
+        <p>We continuously refine processes and scale capacity as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section testi-section">
+  <div class="container">
+    <div class="section-header-center">
+      <div class="section-tag">Client Stories</div>
+      <h2 class="section-title">Trusted by Financial Services Teams</h2>
+      <p class="section-sub">Hear from the operations leaders who rely on CFI Global every day.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The team is responsive and structured — our follow-ups and customer handling improved quickly after onboarding them."</p>
+        <div class="testi-author">Operations Manager</div>
+        <div class="testi-role">Financial Services</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Accurate back-office support and timely reporting helped us scale without adding internal workload. Highly recommended."</p>
+        <div class="testi-author">Process Lead</div>
+        <div class="testi-role">Loan Operations</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Clear communication and disciplined execution — exactly what we needed for our customer support function."</p>
+        <div class="testi-author">Support Head</div>
+        <div class="testi-role">Insurance Team</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Share your requirement and our team will get back with the right solution within 24 hours.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Send an Enquiry</a>
+      <a href="tel:+919403892936" class="btn-outline">+91 94038 92936</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">CFI <span>Global</span></div>
+        <p>Client First Innovate Pvt. Ltd. — BPO, IT Solutions, NRI Banking, Insurance, and Financial Consulting tailored for your success.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">IT Solutions</a></li>
+          <li><a href="services.html">NRI Banking</a></li>
+          <li><a href="services.html">BPO Services</a></li>
+          <li><a href="services.html">CRM & ERP</a></li>
+          <li><a href="services.html">Financial Consulting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="loans.html">Loans</a></li>
+          <li><a href="insurance.html">Insurance</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p><strong>Email:</strong><br>info@cfiglobal.in</p>
+        <p><strong>Phone:</strong><br>+91 94038 92936</p>
+        <p><strong>Offices:</strong><br>Ranchi • Mohali • Patna<br>Kolkata • Delhi</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Client First Innovate Pvt. Ltd. All rights reserved.</p>
+      <p class="footer-offices">cfiglobal.in</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
