@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Career - CFI Global</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* COLOR VARIABLES */
+:root {
+  --blue-600: #0a66c2;
+  --blue-900: #062d5f;
+  --gray-500: #6b7fa0;
+  --white: #ffffff;
+}
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BODY */
+body{
+font-family: 'DM Sans', sans-serif;
+background:#f9fbff;
+color:#333;
+}
+
+/* HEADINGS */
+h1,h2,h3{
+font-family:'Playfair Display', serif;
+}
+
+/* LAYOUT */
+.section{
+padding:96px 0;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 24px;
+}
+
+/* HERO SECTION */
+.hero{
+text-align:center;
+background:var(--blue-900);
+color:var(--white);
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#dce7ff;
+}
+
+/* CARD GRID */
+
+.career-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+margin-top:40px;
+}
+
+/* CARD */
+
+.service-card{
+background:var(--white);
+padding:40px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.05);
+text-align:center;
+}
+
+.service-title{
+font-size:22px;
+margin-bottom:10px;
+color:var(--blue-900);
+}
+
+.service-description{
+color:var(--gray-500);
+margin-bottom:20px;
+}
+
+/* BUTTONS */
+
+.btn-primary{
+background:var(--blue-600);
+color:var(--white);
+padding:12px 22px;
+border:none;
+border-radius:6px;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-outline{
+border:2px solid var(--blue-600);
+color:var(--blue-600);
+padding:12px 22px;
+text-decoration:none;
+border-radius:6px;
+display:inline-block;
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+background:#eef4ff;
+}
+
+.cta h2{
+margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:var(--blue-900);
+color:var(--white);
+padding:40px 20px;
+text-align:center;
+margin-top:50px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:1024px){
+.career-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media (max-width:768px){
+.career-grid{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:34px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+<h1>Join Our Team</h1>
+<p>Build your career with CFI Global and grow with industry professionals.</p>
+</section>
+
+<!-- CAREER OPTIONS -->
+
+<section class="section">
+<div class="container">
+
+<div class="career-grid">
+
+<div class="service-card">
+<h3 class="service-title">Job Opportunities</h3>
+<p class="service-description">
+Explore full-time career opportunities at CFI Global.
+</p>
+
+<a href="#" class="btn-primary">Apply for Job</a>
+</div>
+
+<div class="service-card">
+<h3 class="service-title">Internship Program</h3>
+<p class="service-description">
+Students can gain real-world experience through our internships.
+</p>
+
+<a href="#" class="btn-primary">Apply for Internship</a>
+</div>
+
+<div class="service-card">
+<h3 class="service-title">Partnership Program</h3>
+<p class="service-description">
+Collaborate with us as a business or service partner.
+</p>
+
+<a href="#" class="btn-primary">Become a Partner</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CTA SECTION -->
+
+<section class="section cta">
+<div class="container">
+
+<h2>Start Your Journey With Us</h2>
+
+<a href="#" class="btn-outline">Contact HR</a>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>CFI Global</p>
+
+<p>Email: info@cfiglobal.in</p>
+
+<p>Phone: +91 9403892936</p>
+
+</footer>
+
+</body>
+</html>
