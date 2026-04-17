@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CFI Global - Product Page</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -19,11 +20,8 @@
     .section {margin-top:40px;}
     .cards {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px;}
     .card {background:white; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);} 
-    input {width:100%; padding:8px; margin:5px 0 10px; border-radius:6px; border:1px solid #ccc;}
+    input, select {width:100%; padding:8px; margin:5px 0 10px; border-radius:6px; border:1px solid #ccc;}
     footer {background:#0b3d91; color:white; padding:20px; margin-top:40px;}
-
-    ul {padding-left:18px; font-size:14px;}
-    li {margin-bottom:5px;}
   </style>
 </head>
 
@@ -34,8 +32,6 @@
   <nav>
     <a href="#">Home</a>
     <a href="#services">Services</a>
-    <a href="#products">Products</a>
-    <a href="#career">Career</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -66,137 +62,46 @@
   </div>
 </div>
 
-<!-- Loans -->
+<!-- FORM -->
 <div class="section">
-  <h2>Apply for Loans</h2>
-  <div class="cards">
+  <h2>Apply for Services</h2>
 
-    <div class="card">
-      <h3>Personal Loan</h3>
-      <form onsubmit="submitForm(event, 'Personal Loan')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Loan Amount" required>
-        <button class="btn">Apply Now</button>
-      </form>
-    </div>
-
-    <div class="card">
-      <h3>Home Loan</h3>
-      <form onsubmit="submitForm(event, 'Home Loan')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Property Value" required>
-        <button class="btn">Apply Now</button>
-      </form>
-    </div>
-
-    <div class="card">
-      <h3>Vehicle Loan</h3>
-      <form onsubmit="submitForm(event, 'Vehicle Loan')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="Vehicle Type" required>
-        <button class="btn">Apply Now</button>
-      </form>
-    </div>
-
-    <div class="card">
-      <h3>Loan Against Property</h3>
-      <form onsubmit="submitForm(event, 'Loan Against Property')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Property Value" required>
-        <button class="btn">Apply Now</button>
-      </form>
-    </div>
-
-  </div>
-</div>
-
-<!-- Credit Card -->
-<div class="section">
-  <h2>Apply for Credit Card</h2>
   <div class="cards">
     <div class="card">
-      <h3>Credit Card Application</h3>
-      <form onsubmit="submitForm(event, 'Credit Card')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Monthly Income" required>
-        <input type="text" placeholder="City" required>
-        <button class="btn">Apply Now</button>
+      <h3>Application Form</h3>
+
+      <form onsubmit="submitForm(event)">
+        
+        <label>Select Service</label>
+        <select id="serviceType" required>
+          <option value="">-- Select Service --</option>
+
+          <optgroup label="Loans">
+            <option>Personal Loan</option>
+            <option>Home Loan</option>
+            <option>Vehicle Loan</option>
+            <option>Loan Against Property</option>
+          </optgroup>
+
+          <optgroup label="Finance">
+            <option>Credit Card</option>
+            <option>Mutual Funds</option>
+            <option>SIP</option>
+          </optgroup>
+        </select>
+
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="email" id="email" placeholder="Email" required>
+
+        <input type="number" id="loanAmount" placeholder="Loan Amount">
+        <input type="text" id="loanPeriod" placeholder="Loan Period (months)">
+        <input type="text" id="extraField" placeholder="Additional Details">
+
+        <button class="btn">Submit Application</button>
       </form>
-    </div>
-  </div>
-</div>
 
-<!-- Insurance -->
-<div class="section">
-  <h2>Insurance</h2>
-  <div class="cards">
-    <div class="card">Life Insurance</div>
-    <div class="card">Health Insurance</div>
-    <div class="card">Travel Insurance</div>
-    <div class="card">Business Insurance</div>
-  </div>
-</div>
-
-<!-- Insurance Guidelines -->
-<div class="section">
-  <h2>Insurance Details & Guidelines</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Life Insurance</h3>
-      <ul><li>Minimum age 18+</li><li>ID proof required</li><li>Income proof</li></ul>
     </div>
-    <div class="card">
-      <h3>Health Insurance</h3>
-      <ul><li>Waiting period applies</li><li>Medical test required</li><li>Cashless hospitals</li></ul>
-    </div>
-    <div class="card">
-      <h3>Travel Insurance</h3>
-      <ul><li>Trip coverage</li><li>Emergency support</li><li>Passport needed</li></ul>
-    </div>
-    <div class="card">
-      <h3>Business Insurance</h3>
-      <ul><li>Property protection</li><li>Liability cover</li><li>Docs required</li></ul>
-    </div>
-  </div>
-</div>
-
-<!-- Mutual Funds -->
-<div class="section">
-  <h2>Mutual Funds & SIP</h2>
-  <div class="cards">
-
-    <div class="card">
-      <h3>Mutual Funds</h3>
-      <form onsubmit="submitForm(event, 'Mutual Funds')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Investment Amount" required>
-        <button class="btn">Apply Now</button>
-      </form>
-    </div>
-
-    <div class="card">
-      <h3>SIP</h3>
-      <form onsubmit="submitForm(event, 'SIP')">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email" required>
-        <input type="number" placeholder="Monthly SIP" required>
-        <button class="btn">Start SIP</button>
-      </form>
-    </div>
-
   </div>
 </div>
 
@@ -214,9 +119,63 @@
 </footer>
 
 <script>
-function submitForm(e, type){
+const serviceType = document.getElementById("serviceType");
+const extraField = document.getElementById("extraField");
+
+// ✅ YOUR GOOGLE SCRIPT URL
+const scriptURL = "https://script.google.com/macros/s/AKfycbyhZzr66jbrS6J4cbAoQk3R7P_W4DnN13hdEmXr3KA2ogwRZe3ApD4xSfhaWdGzvyJ7/exec";
+
+// Dynamic placeholder
+serviceType.addEventListener("change", function () {
+  let value = serviceType.value;
+
+  if (value.includes("Loan")) {
+    extraField.placeholder = "Enter Loan Purpose / Details";
+  } 
+  else if (value === "Credit Card") {
+    extraField.placeholder = "Enter Monthly Income";
+  } 
+  else if (value === "Mutual Funds") {
+    extraField.placeholder = "Investment Plan Details";
+  } 
+  else if (value === "SIP") {
+    extraField.placeholder = "Monthly SIP Details";
+  } 
+  else {
+    extraField.placeholder = "Additional Details";
+  }
+});
+
+// Submit to Google Sheets
+function submitForm(e){
   e.preventDefault();
-  alert(type + " Application Submitted!");
+
+  const data = {
+    service: document.getElementById("serviceType").value,
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    loanAmount: document.getElementById("loanAmount").value,
+    loanPeriod: document.getElementById("loanPeriod").value,
+    details: document.getElementById("extraField").value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(() => {
+    alert("Application Submitted Successfully!");
+    e.target.reset();
+  })
+  .catch(error => {
+    alert("Error submitting form");
+    console.log(error);
+  });
 }
 </script>
 
