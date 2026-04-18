@@ -13,9 +13,109 @@ body {
   background: linear-gradient(135deg, #e8f3ff, #f8fbff);
 }
 
-/* SECTION */
+/* ================= NAVBAR CSS (ADDED) ================= */
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #eee;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  background: #0a66c2;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.logo-text {
+  font-weight: 600;
+}
+
+.logo-sub {
+  font-size: 12px;
+  color: #666;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  background: #e8f3ff;
+  color: #0a66c2;
+}
+
+.login-wrapper {
+  position: relative;
+}
+
+.login-btn {
+  padding: 8px 12px;
+  border: none;
+  background: #0a66c2;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.login-wrapper:hover .login-dropdown {
+  display: block;
+}
+
+.login-dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.login-dropdown a:hover {
+  background: #f0f4ff;
+}
+
+/* ================= YOUR ORIGINAL CSS ================= */
+
 .about-section {
-  padding: 100px 20px;
+  padding: 120px 20px; /* increased for navbar spacing */
 }
 
 .container {
@@ -109,7 +209,6 @@ li {
   object-fit: contain;
 }
 
-/* Hover Effect */
 .partner-item:hover {
   background: #0a66c2;
 }
@@ -170,6 +269,38 @@ li {
 </head>
 
 <body>
+
+<!-- ================= NAVBAR HTML (ADDED) ================= -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">CFI</div>
+      <div>
+        <div class="logo-text">CFI Global</div>
+        <div class="logo-sub">Customer First Innovate</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="career.html">Careers</a></li>
+      <li><a href="contactus.html">Contact</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+
+    <div class="login-wrapper">
+      <button class="login-btn">Login</button>
+      <div class="login-dropdown">
+        <a href="#">Admin Login</a>
+        <a href="#">Employee Login</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= YOUR ORIGINAL CODE ================= -->
 
 <section class="about-section">
 <div class="container">
